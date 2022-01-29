@@ -19,16 +19,12 @@ class ViewController: UIViewController {
     
     private var tipValue: Double {
         let controlIndex = tipControl.selectedSegmentIndex
-        let tip = tipControl.titleForSegment(at: controlIndex)
-        switch tip {
-        case "0%":
-            return 1 
-        case "10%":
-            return 0.1
-        case "20%":
-            return 0.2
-        default:
-            return 0.5
+        if let tip = tipControl.titleForSegment(at: controlIndex){
+            let tipMinusPercentSign =  String(tip.dropLast())
+            let tipAsANumber = Double(tipMinusPercentSign)
+            return tipAsANumber! / 100
+        } else {
+            return 0
         }
     }
     
@@ -68,6 +64,11 @@ class ViewController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     private func reloadCalculatorView() {
         billTextField.text = ""
         tipControl.selectedSegmentIndex = 0
@@ -76,3 +77,14 @@ class ViewController: UIViewController {
     }
 }
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}

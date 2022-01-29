@@ -15,7 +15,7 @@ struct  Calculator {
     mutating func calculateSplitedBill(tip: Double, totalBill: Double, splitFor: Int) {
         countOfPeople = splitFor
         tipValue = tip
-        let totalBillWithTip = totalBill + totalBill * tip
+        let totalBillWithTip = totalBill * (1 + tip)
         splitedBill = totalBillWithTip / Double(splitFor)
     }
     
@@ -25,7 +25,7 @@ struct  Calculator {
     }
     
     func giveInfoAboutCalculating() -> String {
-        let tip = tipValue != 1 ? Int(tipValue * 100) :  0 // если в segmentControl tip = 0% - множитель чаевых tipValue будет 1
+        let tip = Int(tipValue * 100)
         return "Split between \(countOfPeople) people, with \(tip)% tip"
     }
 }
