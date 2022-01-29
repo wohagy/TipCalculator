@@ -83,6 +83,9 @@
                                                     <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minimumValue="2" maximumValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="7h4-B4-Opj">
                                                         <rect key="frame" x="171" y="5" width="163" height="32"/>
                                                         <color key="tintColor" red="0.01972228661" green="0.69373357300000005" blue="0.41956579690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <connections>
+                                                            <action selector="splitsCounControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="Of0-Gl-g76"/>
+                                                        </connections>
                                                     </stepper>
                                                 </subviews>
                                             </stackView>
@@ -132,6 +135,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="billTextField" destination="N0e-1n-iQA" id="qiK-7o-zel"/>
+                        <outlet property="splitsCountLabel" destination="EQX-Al-cfB" id="MRq-6F-uHc"/>
+                        <outlet property="tipControl" destination="NYg-eK-g5y" id="UTC-c2-cno"/>
                         <segue destination="fz3-gk-9Pt" kind="presentation" identifier="goToResult" id="Owd-6T-K7p"/>
                     </connections>
                 </viewController>
@@ -188,6 +194,9 @@
                                 <state key="normal" title="Recalculate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6zg-Fs-Hc7" kind="unwind" unwindAction="unwindSegueToMainViewWithSegue:" id="R2R-cx-rUH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="3qT-Gg-wGS"/>
@@ -206,8 +215,13 @@
                             <constraint firstItem="b6r-Ys-znY" firstAttribute="leading" secondItem="JW0-Le-b5F" secondAttribute="leading" id="zr6-ko-M1f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calculatingInfoLabel" destination="yeU-Ip-wNZ" id="agr-LC-o36"/>
+                        <outlet property="resultLabel" destination="BHc-LB-SS0" id="xOG-G7-7pS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N4U-UT-Sib" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="6zg-Fs-Hc7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="834.78260869565224" y="75.669642857142847"/>
         </scene>
