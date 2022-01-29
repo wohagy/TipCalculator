@@ -45,9 +45,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var tipControl: UISegmentedControl!
     
     @IBOutlet weak var splitsCountLabel: UILabel!
-    @IBAction func splitsCounControl(_ sender: UIStepper) {
+    @IBAction func splitsCountControl(_ sender: UIStepper) {
         splitCount = Int(sender.value)
     }
+    
+    @IBOutlet weak var splitsCountOutlet: UIStepper!
     
     @IBAction func calculateButtonAction(_ sender: UIButton) {
         calculator.calculateSplitedBill(tip: tipValue, totalBill: billTotal, splitFor: splitCount)
@@ -55,6 +57,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func unwindSegueToMainView(segue: UIStoryboardSegue){
+        reloadCalculatorView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,6 +67,12 @@ class ViewController: UIViewController {
             resultVC.result = calculator.giveRoundedSplitedBill()
         }
     }
-
+    
+    private func reloadCalculatorView() {
+        billTextField.text = ""
+        tipControl.selectedSegmentIndex = 0
+        splitsCountOutlet.value = splitsCountOutlet.minimumValue
+        splitCount = Int(splitsCountOutlet.minimumValue)
+    }
 }
 

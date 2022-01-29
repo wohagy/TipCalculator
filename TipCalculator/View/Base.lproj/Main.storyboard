@@ -84,7 +84,7 @@
                                                         <rect key="frame" x="171" y="5" width="163" height="32"/>
                                                         <color key="tintColor" red="0.01972228661" green="0.69373357300000005" blue="0.41956579690000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <connections>
-                                                            <action selector="splitsCounControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="Of0-Gl-g76"/>
+                                                            <action selector="splitsCountControl:" destination="BYZ-38-t0r" eventType="valueChanged" id="Of0-Gl-g76"/>
                                                         </connections>
                                                     </stepper>
                                                 </subviews>
@@ -137,6 +137,7 @@
                     <connections>
                         <outlet property="billTextField" destination="N0e-1n-iQA" id="qiK-7o-zel"/>
                         <outlet property="splitsCountLabel" destination="EQX-Al-cfB" id="MRq-6F-uHc"/>
+                        <outlet property="splitsCountOutlet" destination="7h4-B4-Opj" id="3JR-hG-Tcx"/>
                         <outlet property="tipControl" destination="NYg-eK-g5y" id="UTC-c2-cno"/>
                         <segue destination="fz3-gk-9Pt" kind="presentation" identifier="goToResult" id="Owd-6T-K7p"/>
                     </connections>
